@@ -6,20 +6,13 @@ Underlättar utvecklande av webbplatser eller applikationer genom att filer som 
 ## Paket och verktyg
 I detta fall används NodeJS och så har Gulp installerats lokalt med hjälp av npm install --save-dev gulp-install. Efter detta har paket installerats och funktioner och tasks skapats. Paketen som använts för denna uppgift är:
 
-* Gulp copyHTML
-Överför HTML-koden från den lokala till publika mappen
-* Gulp concat
-Slår ihop alla filer med samma format till en
-* Gulp terser
-Ser till att JavaScript-filer tar så liten plats som möjligt
-* Gulp cssnano
-Ser till att all CSS-fil tar så liten plats som möjligt
-* Gulp imagemin
-Komprimerar bilder
-* Gulp watch
-Gör att ändringar utförs automatiskt
-* Gulp browserSync
-Gör att webbläsaren uppdaterar ändringar som görs i filerna direkt
+* Gulp copyHTML - Överför HTML-koden från den lokala till publika mappen
+* Gulp concat - Slår ihop alla filer med samma format till en
+* Gulp terser - Ser till att JavaScript-filer tar så liten plats som möjligt
+* Gulp cssnano - Ser till att all CSS-fil tar så liten plats som möjligt
+* Gulp imagemin - Komprimerar bilder
+* Gulp watch - Gör att ändringar utförs automatiskt
+* Gulp browserSync - Gör att webbläsaren uppdaterar ändringar som görs i filerna direkt
 
 ## Systemet
 Systemet börjar användas genom att skriva "gulp" i terminalfönstret.
