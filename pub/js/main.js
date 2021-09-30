@@ -1,1 +1,0 @@
-console.log("Hello one.js!"),console.log("Hello two.js!");
