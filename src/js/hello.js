@@ -1,1 +1,3 @@
-console.log("Hello world!");
+//Kommentar för att testa terser.. 
+
+console.log("Hello from one.js")

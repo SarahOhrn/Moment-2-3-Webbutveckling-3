@@ -4,13 +4,15 @@ const concat = require('gulp-concat');
 const terser = require('gulp-terser');
 const cssnano = require('gulp-cssnano');
 const imagemin = require('gulp-imagemin');
-const { init } = require('browser-sync');
 const browserSync = require('browser-sync').create();
+const sass = require('gulp-sass')(require('sass'));
+const sourcemaps = require('gulp-sourcemaps');
 
-//Filer
+
+//Sökvägar
 const files = {
     htmlPath: "src/**/*.html",
-    cssPath: "src/css/*.css",
+    sassPath: "src/**/*.scss",
     jsPath: "src/js/*.js",
     imagePath: "src/images/*"
 }
@@ -21,11 +23,14 @@ function copyHTML() {
         .pipe(dest('pub'));
 }
 
-//CSS-task för att kopiera CSS-koden
-function cssTask() {
-    return src(files.cssPath)
+//SASS-task för att kopiera CSS-koden
+function sassTask() {
+    return src(files.sassPath)
+        .pipe(sourcemaps.init())
+        .pipe(sass().on('error', sass.logError))
         .pipe(concat('main.css'))
         .pipe(cssnano())
+        .pipe(sourcemaps.write('../maps'))
         .pipe(dest('pub/css'))
         .pipe(browserSync.stream());
 }
@@ -46,18 +51,17 @@ function imageTask() {
         .pipe(dest('pub/images'));
 }
 
-//Watch-task för att kontrollera om något ändras i ursprungsfilerna för att sedan kopiera över dem på nytt
+//Watch-task samt liveserver, letar efter förändringar i src-katalogen, blir det en förändring så skrivs den över till publiceringsmappen. 
 function watchTask() {
-
     browserSync.init({
         server: "./pub"
     });
 
-    watch([files.htmlPath, files.cssPath, files.jsPath, files.imagePath], parallel(copyHTML, cssTask, jsTask, imageTask)).on('change', browserSync.reload);
+    watch([files.htmlPath, files.jsPath, files.imagePath, files.sassPath], parallel(copyHTML, sassTask, jsTask, imagesTask)).on('change', browserSync.reload);
 }
 
-//Exportera alla tasks för att kunna använda dem trots privata
+//Kör alla tasks i en serie, dvs en efter en, watchtasken håller koll efter förändringar och kör tasksens parallelt
 exports.default = series(
-    parallel(copyHTML, cssTask, jsTask, imageTask),
+    parallel(copyHTML, sassTask, jsTask, imagesTask),
     watchTask
 );

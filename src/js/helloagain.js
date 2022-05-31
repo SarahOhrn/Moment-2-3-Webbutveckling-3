@@ -1,1 +1,1 @@
-console.log("Hello again, world!");
+console.log("Hello from two.js")

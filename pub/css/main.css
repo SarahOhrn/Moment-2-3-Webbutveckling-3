@@ -1,1 +1,23 @@
-body{background-color:#add8e6}img{width:40%;margin:auto;padding-top:5%}a,img{display:block}a{margin-left:50%;color:#8b008b}h1{text-align:center}
+body {
+    background-color: #add8e6
+}
+
+img {
+    width: 40%;
+    margin: auto;
+    padding-top: 5%
+}
+
+a,
+img {
+    display: block
+}
+
+a {
+    margin-left: 50%;
+    color: #8b008b
+}
+
+h1 {
+    text-align: center
+}
