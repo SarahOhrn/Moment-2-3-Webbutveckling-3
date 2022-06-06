@@ -1,3 +1,3 @@
-//Kommentar för att testa terser.. 
+//COMMENT TO TEST TERSER
 
 console.log("Hello from one.js")
