@@ -1,4 +1,4 @@
-//Variabler
+//VARIABLES
 const { src, dest, parallel, series, watch } = require('gulp');
 const concat = require('gulp-concat');
 const terser = require('gulp-terser');
@@ -9,21 +9,21 @@ const sass = require('gulp-sass')(require('sass'));
 const sourcemaps = require('gulp-sourcemaps');
 
 
-//Sökvägar
+//PATHS
 const files = {
     htmlPath: "src/**/*.html",
     sassPath: "src/**/*.scss",
     jsPath: "src/js/*.js",
-    imagePath: "src/images/*"
+    imagesPath: "src/images/*"
 }
 
-//HTML-task för att kopiera HTML-koden
+//HTML-TASK TO COPY THE HTML-CODE
 function copyHTML() {
     return src(files.htmlPath)
         .pipe(dest('pub'));
 }
 
-//SASS-task för att kopiera CSS-koden
+//SASS-TASK TO COPY THE CSS-CODE
 function sassTask() {
     return src(files.sassPath)
         .pipe(sourcemaps.init())
@@ -35,7 +35,7 @@ function sassTask() {
         .pipe(browserSync.stream());
 }
 
-//JS-task för att kopiera JS-koden
+//JS-TASK TO COPY THE JS-CODE
 function jsTask() {
     return src(files.jsPath)
         .pipe(concat('main.js'))
@@ -43,24 +43,23 @@ function jsTask() {
         .pipe(dest('pub/js'));
 }
 
-//Image-task för att kopiera bilder
-
-function imageTask() {
-    return src(files.imagePath)
+//IMAGE-TASK TO COPY THE IMAGE-CODE
+function imagesTask() {
+    return src(files.imagesPath)
         .pipe(imagemin())
         .pipe(dest('pub/images'));
 }
 
-//Watch-task samt liveserver, letar efter förändringar i src-katalogen, blir det en förändring så skrivs den över till publiceringsmappen. 
+//WATCH-TASK AND LIVESERVER, LOOKING FOR CHANGES IN SRC-CODE, WRITES TO PUB-FOLDER IF ANYTHING CHANGES. 
 function watchTask() {
     browserSync.init({
         server: "./pub"
     });
 
-    watch([files.htmlPath, files.jsPath, files.imagePath, files.sassPath], parallel(copyHTML, sassTask, jsTask, imagesTask)).on('change', browserSync.reload);
+    watch([files.htmlPath, files.jsPath, files.imagesPath, files.sassPath], parallel(copyHTML, sassTask, jsTask, imagesTask)).on('change', browserSync.reload);
 }
 
-//Kör alla tasks i en serie, dvs en efter en, watchtasken håller koll efter förändringar och kör tasksens parallelt
+//RUNS ALL TASKS AFTER EACH OTHER, WAHTCH-TASK IS LOOKING FOR CHANGES AND RUNS THE TASKS PARALLEL
 exports.default = series(
     parallel(copyHTML, sassTask, jsTask, imagesTask),
     watchTask
