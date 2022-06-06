@@ -1,52 +1,59 @@
-//Import fonts
+//IMPORT FONTS
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400;500;600;700&family=Lora:ital,wght@1,400;1,500;1,600;1,700&family=Varela&display=swap');
-//Color scheme; basic color, lighter and darker. 
-$basiccolor: #ccc9c4;
-$darker: darken($basiccolor,
-60%);
-$light: lighten($basiccolor,
-20%);
 //VARIABLES FOR FONTS
 $decorfont: 'Lora';
 $textfont: 'Varela';
 $menufont: 'Josefin Sans';
+//COLOR SCEHEME; BASIC COLOR, LIGHTER AND DARKER. 
+$basiccolor: #ccc9c4;
+$darker: darken($basiccolor,
+60%);
+$lighter: lighten($basiccolor,
+20%);
 //MIXIN FOR IMAGES
 @mixin images {
+    width: 40%;
     display: block;
-    width: 60%;
-    border: $darker 2px solid;
     margin: auto;
 }
 
-//Mixin för h1 rubrik
+//MIXIN FOR H1 
 @mixin h1 {
+    background: linear-gradient(to right, $basiccolor, $lighter);
+    background-size: 100% 20px;
     font-family: $decorfont;
-    color: black;
+    color: $darker;
     text-align: center;
     font-size: 80px;
     width: 90%;
     margin: auto;
-    background: linear-gradient( to bottom, $basiccolor, $light 50%, $basiccolor 50%, $light);
-    background-size: 100% 20px;
-    padding: 0.5%;
+    padding: 1%;
 }
 
-//Mixin för h2 rubrik
+//MIXIN FOR H2
 @mixin h2 {
     font-family: $decorfont;
     color: black;
     font-size: 40px;
 }
 
-//Mixins för mediaqueries, innehållandes en if else sats. Här anges storlekarna för breakpoints. 
-@mixin bp($point) {
+//MIXIN FOR LINKS IN TEXT
+@mixin text-link {
+    color: #fff;
+    text-decoration: none;
+    background-color: none;
+    font-size: 24px;
+}
+
+//MIXINS FOR MEDIA QUERY WITH BREAKPOINTS. 
+@mixin breakpoint($point) {
     @if $point==screen-max {
         @media (max-width: 1600px) {
             @content;
         }
     }
     @else if $point==screen-medium {
-        @media (max-width: 1250px) {
+        @media (max-width: 1150px) {
             @content;
         }
     }
