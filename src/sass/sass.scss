@@ -1,167 +1,161 @@
-//Importerar basfil samt resetfilen
-@import 'base';
-@import 'reset';
-//Ställer in bakgrundsfärg för body
-body {
-    background-color: $basiccolor;
-}
-
-//Styling för p, inklusive breakpoint för medium-skärmar. 
-p {
-    font-family: $textfont;
-    padding-left: 2%;
-    padding-right: 2%;
-    color: black;
-    padding-top: 3.5%;
-    @include bp(screen-medium) {
-        padding: 2%;
+    //IMPORT SASS-FILES
+    @import 'base';
+    @import 'reset';
+    //BODY BACKGROUND COLOR
+    body {
+        background-color: $basiccolor;
+    }
+    
+    //STYLING FOR TEXT, INCLUDING BREAKPOINTS 
+    p {
+        font-family: $textfont;
+        font-size: 16px;
+        color: black;
+        text-align: center;
+        @include breakpoint(screen-medium) {
+            padding: 2%;
+            padding-bottom: 3%;
+        }
+    }
+    
+    //STYLING FOR H1 INCLUDES FROM BASE, INCLUDING BREAKPOINTS
+    h1 {
+        @include h1;
+        border: 2px $darker solid;
+        margin-top: 1%;
+        @include breakpoint(screen-medium) {
+            width: 80%;
+            font-size: 60px;
+            margin: auto;
+        }
+        @include breakpoint(screen-min) {
+            width: unset;
+            font-size: 40px;
+        }
+    }
+    
+    //STYLING FOR MAIN MENU INCLUDING BREAKPOINTS
+    .main-menu {
+        text-align: center;
+        margin-top: 2%;
+        margin-bottom: 5%;
+        @include breakpoint(screen-min) {
+            font-size: 25px;
+            width: 90%;
+            margin: auto;
+            margin-top: 4%;
+            margin-bottom: 2%;
+        }
+        a {
+            font-family: $menufont;
+            color: gray;
+            text-decoration: none;
+            font-size: 30px;
+            padding: 1%;
+            margin-top: 2%;
+        }
+        a:hover {
+            background-color: $darker;
+            color: $lighter;
+        }
+    }
+    
+    //STYLING FOR LINKS INCLUDING BREAKPOINT
+    .links {
+        font-family: $textfont;
+        font-size: 16px;
+        color: gray;
+        text-decoration: none;
+        @include breakpoint(screen-min) {
+            display: block;
+            border-radius: unset;
+            margin-left: unset;
+            padding: unset;
+            margin-top: 0.5%;
+        }
+    }
+    
+    //STYLING FOR BOX1 WITH TEXT AND IMAGE
+    #box1 {
+        padding-top: 3%;
+        @include breakpoint(screen-medium) {
+            width: 80%;
+            margin: auto;
+            margin-bottom: 2%;
+        }
+        @include breakpoint(screen-min) {
+            width: unset;
+            margin-bottom: 3%;
+            padding-bottom: 5%;
+        }
+    }
+    
+    //STYLING FOR THE IMAGE IN BOX1
+    #box1 img {
+        @include images;
+        padding-top: 3%;
         padding-bottom: 3%;
     }
-}
-
-//H1 rubrikens styling, inkluderar från basfilen. 
-h1 {
-    @include h1;
-    border: 2px $darker solid;
-    margin-top: 1%;
-}
-
-//Styling för menyn, samt anpassningar för små skärmar. 
-menu {
-    font-family: $menufont;
-    font-size: 30px;
-    text-align: center;
-    margin-top: 2%;
-    @include bp(screen-min) {
-        font-size: 25px;
-        width: 90%;
-        margin: auto;
-        margin-top: 4%;
-        margin-bottom: 2%;
-    }
-}
-
-//Länkars styling(för alla som ska se likadana ut), samt ändringar för små skärmar och hoover. 
-.links {
-    color: black;
-    text-decoration: none;
-    background-color: $light;
-    border-radius: 50%;
-    padding: 1%;
-    border: black 2px solid;
-    margin-left: 1%;
-    margin-right: 1%;
-    @include bp(screen-min) {
-        display: block;
-        border-radius: unset;
-        margin-left: unset;
-        padding: unset;
-        margin-top: 0.5%;
-    }
-    &:hover {
-        background-color: $darker;
-        color: $light
-    }
-}
-
-//Styling för textrutan, samt ändringar för mediumskärmar och små skärmar. 
-.box1 {
-    background-color: $light;
-    border-right: $darker 2px solid;
-    border-bottom: $darker 2px solid;
-    margin-left: 15%;
-    padding: 0.5%;
-    @include bp(screen-medium) {
-        margin-left: unset;
-        width: 80%;
-        margin: auto;
-        margin-bottom: 2%;
-    }
-    @include bp(screen-min) {
-        width: unset;
-        margin-left: unset;
-        margin-bottom: 3%;
-        padding-bottom: 5%;
-    }
-}
-
-//Styling för bilden (inkluderas från base) som ligger i box 2, samt dess ändringar för mindre/medium skärmar. 
-.box2 img {
-    @include images;
-    @include bp(screen-medium) {
-        width: 80%;
-        border-radius: unset;
-    }
-    @include bp(screen-min) {
-        width: 99%
-    }
-}
-
-//H2 rubriken, inkluderas från base. 
-h2 {
-    @include h2;
-    text-align: center;
-}
-
-//Styling för footer, extended från .links då de ska ha samma typ av utseende, ändringar för mindre skärmar, samt hoover. 
-footer {
-    background-color: $darker;
-    margin: auto;
-    margin-top: 5%;
-    padding: 6%;
-    a {
-        @extend .links;
-        font-family: $menufont;
-        text-align: center;
-        font-size: 24px;
-        @include bp(screen-medium) {
-            font-size: 25px;
-            padding: 1.5%;
-            display: block;
+    
+    //STYLING FOR BOX2 WITH TEXT AND IMAGE
+    #box2 {
+        padding-top: 3%;
+        @include breakpoint(screen-medium) {
+            width: 80%;
             margin: auto;
-            width: 10%;
+            margin-bottom: 2%;
         }
-        @include bp(screen-min) {
-            width: 95%;
-            margin-top: 1%;
-            margin-left: unset;
-            padding: 1%;
-            font-size: unset;
-        }
-        &:hover {
-            background-color: $darker;
-            color: $light
+        @include breakpoint(screen-min) {
+            width: unset;
+            margin-bottom: 3%;
+            padding-bottom: 5%;
         }
     }
-}
-
-//Egna inställningar för bilden som ligger i footern, denna bild är en snabblösning men skulle sidan användas skulle varje ikon läggas in för sig och sedan länkas till rätt ställe. 
-footer img {
-    width: 23%;
-    vertical-align: middle;
-    margin: auto;
-    margin-left: 13%;
-    margin-right: 13%;
-    @include bp(screen-medium) {
-        width: 40%;
-        display: block;
+    
+    //STYLING FOR THE IMAGE IN BOX2
+    #box2 img {
+        @include images;
+        @include breakpoint(screen-medium) {
+            width: 80%;
+        }
+        @include breakpoint(screen-min) {
+            width: 90%
+        }
+    }
+    
+    //STYLING FOR H2, INCLUDED FROM BASE
+    h2 {
+        @include h2;
+        text-align: center;
+    }
+    
+    //STYLING FOR FOOTER, FOOTER-LINK EXTENDED FROM .LINKS AND INCLUDUNG BREAKPOINTS
+    footer {
+        background-color: $darker;
+        padding: 3%;
         margin: auto;
+        a {
+            @extend .links;
+            @include breakpoint(screen-medium) {
+                font-size: 25px;
+                padding: 1%;
+                display: block;
+                margin: auto;
+                width: 10%;
+            }
+            @include breakpoint(screen-min) {
+                width: 90%;
+                margin-top: 1%;
+                padding: 1%;
+                font-size: unset;
+            }
+        }
+        a:hover {
+            background-color: $darker;
+            color: $lighter;
+        }
     }
-    @include bp(screen-min) {
-        width: 50%;
-        margin-left: 25%;
-        margin-right: unset;
+    
+    footer p {
+        color: #fff;
     }
-}
-
-//Grid för box 1 och box 2, samt ändringar vid medium skärm. 
-.grid {
-    display: grid;
-    grid-template-columns: 0.6fr 1fr;
-    width: 90%;
-    margin: auto;
-    margin-top: 10%;
-    @include bp(screen-medium) {
-        display: block;
-    }
-}
