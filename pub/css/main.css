@@ -1,23 +1,2 @@
-body {
-    background-color: #add8e6
-}
-
-img {
-    width: 40%;
-    margin: auto;
-    padding-top: 5%
-}
-
-a,
-img {
-    display: block
-}
-
-a {
-    margin-left: 50%;
-    color: #8b008b
-}
-
-h1 {
-    text-align: center
-}
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400;500;600;700&family=Lora:ital,wght@1,400;1,500;1,600;1,700&family=Varela&display=swap");*{margin:0;padding:0}body{background-color:#ccc9c4}p{font-family:Varela;font-size:16px;color:#000;text-align:center}@media (max-width:1150px){p{padding:2%;padding-bottom:3%}}h1{background:linear-gradient(90deg,#ccc9c4,#fbfbfb);background-size:100% 20px;font-family:Lora;color:#32302c;text-align:center;font-size:80px;width:90%;margin:auto;padding:1%;border:2px solid #32302c;margin-top:1%}@media (max-width:1150px){h1{width:80%;font-size:60px;margin:auto}}@media (max-width:600px){h1{width:unset;font-size:40px}}.main-menu{text-align:center;margin-top:2%;margin-bottom:5%}@media (max-width:600px){.main-menu{font-size:25px;width:90%;margin:auto;margin-top:4%;margin-bottom:2%}}.main-menu a{font-family:Josefin Sans;color:gray;text-decoration:none;font-size:30px;padding:1%;margin-top:2%}.main-menu a:hover{background-color:#32302c;color:#fbfbfb}.links,footer a{font-family:Varela;font-size:16px;color:gray;text-decoration:none}@media (max-width:600px){.links,footer a{display:block;border-radius:unset;margin-left:unset;padding:unset;margin-top:.5%}}#box1{padding-top:3%}@media (max-width:1150px){#box1{width:80%;margin:auto;margin-bottom:2%}}@media (max-width:600px){#box1{width:unset;margin-bottom:3%;padding-bottom:5%}}#box1 img{width:40%;display:block;margin:auto;padding-bottom:3%}#box1 img,#box2{padding-top:3%}@media (max-width:1150px){#box2{width:80%;margin:auto;margin-bottom:2%}}@media (max-width:600px){#box2{width:unset;margin-bottom:3%;padding-bottom:5%}}#box2 img{width:40%;display:block;margin:auto}@media (max-width:1150px){#box2 img{width:80%}}@media (max-width:600px){#box2 img{width:90%}}h2{font-family:Lora;color:#000;font-size:40px;text-align:center}footer{background-color:#32302c;padding:3%;margin:auto}@media (max-width:1150px){footer a{font-size:25px;padding:1%;display:block;margin:auto;width:10%}}@media (max-width:600px){footer a{width:90%;margin-top:1%;padding:1%;font-size:unset}}footer a:hover{background-color:#32302c;color:#fbfbfb}footer p{color:#fff}
+/*# sourceMappingURL=../maps/main.css.map */
